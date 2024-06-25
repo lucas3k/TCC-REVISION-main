@@ -247,3 +247,6 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 });
+
+
+//Aqui eu visualizo os projetos que criei na tela novos projetos (aqui no codigo chamada de NEW)

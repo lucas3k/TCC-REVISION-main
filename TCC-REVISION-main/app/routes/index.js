@@ -94,7 +94,7 @@ function HomeScreen() {
         }}
       />
       <Tab.Screen
-        name="Novo"
+        name="Novos Projetos"
         component={New}
         options={{
           tabBarLabel: '',
@@ -113,7 +113,7 @@ function HomeScreen() {
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Perfil"
         component={Profile}
         options={{
           tabBarIcon: ({ size, white }) => (

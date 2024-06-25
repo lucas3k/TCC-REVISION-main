@@ -9,6 +9,7 @@ const MonthlyExpensesChart = ({ valorTotalMesAtual }) => {
   const [mesAtual, setMesAtual] = useState(moment().format('MM/YYYY'));
   const [dadosGrafico, setDadosGrafico] = useState({ labels: [], data: [] });
 
+  //Aqui se verifica se o valor total do mês mudou. Ele limpa o valor (tirando símbolos como "R$") e atualiza valorAtual.
   useEffect(() => {
     const filtrarValor = (value) => {
       // se o valor for menor que mil não tirar o ponto dos centavos
@@ -25,6 +26,9 @@ const MonthlyExpensesChart = ({ valorTotalMesAtual }) => {
       setValorAtual(valor);
     }
   }, [valorTotalMesAtual]);
+
+
+//Aqui eu guardo quanto foi gasto no mês atual. Se o mês já existe, será atualizado. Se não, será criado um novo mês.
 
   useEffect(() => {
     const salvar = async () => {
@@ -47,6 +51,8 @@ const MonthlyExpensesChart = ({ valorTotalMesAtual }) => {
 
     salvar();
   }, [valorAtual, mesAtual]);
+
+//Aqui se verifica se o mês atual já existe na lista. Se não, será criado um novo mês com gasto zero
 
   useEffect(() => {
     const verificarMes = async () => {
@@ -72,12 +78,14 @@ const MonthlyExpensesChart = ({ valorTotalMesAtual }) => {
     verificarMes();
   }, []);
 
+  //Esta função pega todos os meses e seus gastos e atualiza o gráfico.
   const atualizarDadosGrafico = (totalMeses) => {
     const labels = totalMeses.map((mes) => mes.mes);
     const data = totalMeses.map((mes) => mes.total);
     setDadosGrafico({ labels, data });
   };
 
+  //aqui eu "desenho" o grafico
   return (
     <View style={styles.container}>
       <BarChart
@@ -113,3 +121,6 @@ const styles = StyleSheet.create({
 });
 
 export default MonthlyExpensesChart;
+
+//aqui fazemos a criação da logica do grafico de barras
+//valorAtual : quanto dinheiro gastei este mês -  mesAtual: mês atual mês atual que estamos (exemplo 06/2024)

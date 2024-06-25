@@ -1,13 +1,13 @@
-// Importe as funções necessárias do seu módulo do banco de dados
-import { getObjectLocalStorage } from '../services/localstorage';
+// Importando as funções necessárias do módulo do banco de dados
+import { getObjectLocalStorage } from '../services/localstorage'; //pega informação no armazenamento local
 
 // Função para calcular os gastos mensais de cada categoria e o total do mês atual
 export async function getMonthlyExpenses(user) {
   try {
-    // Obtenha os dados do usuário
+    // Obtendo os dados do usuário
     const usuario = user || (await getObjectLocalStorage('usuario'));
 
-    // Obtenha os gastos mensais de cada categoria
+    // Obtendo os gastos mensais de cada categoria
     const casa = await getObjectLocalStorage(`${usuario.email}${usuario.id}cadastroCasa`);
     const alimentacao = await getObjectLocalStorage(`${usuario.email}${usuario.id}alimentacao`);
     const transporte = await getObjectLocalStorage(`${usuario.email}${usuario.id}transporte`);
@@ -28,3 +28,5 @@ export async function getMonthlyExpenses(user) {
     throw error;
   }
 }
+
+//aqui faz o calculo da tela orçamento

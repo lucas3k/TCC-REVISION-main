@@ -174,3 +174,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+//aqui ligamos a logica do monthylyExpenses.js com o calculo que precisamos para saber o gasto total do mes 

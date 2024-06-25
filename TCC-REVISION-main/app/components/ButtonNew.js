@@ -20,3 +20,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   }
 })
+
+//é um componente de botão estilizado

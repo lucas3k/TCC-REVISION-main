@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
-import { clearLocalStorage } from '../services/localstorage';
+import { clearLocalStorage } from '../services/localstorage'; //é uma função para limpar informações antigas
 
-const DB_NAME = 'tcc';
+const DB_NAME = 'tcc'; //nome do banco
 
 // Função para abrir o banco de dados
 export async function openDatabase() {
@@ -33,15 +33,7 @@ const dropTables = async () => {
   }
 };
 
-// excluir tabelas e limpar storage ao carregar o módulo
-// clearLocalStorage().catch(error => {
-//   console.error('Falha ao limpar storage:', error);
-// });
-// dropTables().catch(error => {
-//   console.error('Falha ao deletar tabelas:', error);
-// });
-
-// Função para inicializar o banco de dados
+// Função para inicializar o banco de dados e fazer a criação das tabelas
 export async function initializeDatabase() {
   const db = await openDatabase();
   try {
@@ -79,7 +71,7 @@ initializeDatabase().catch(error => {
   console.error('Falha ao inicializar o banco de dados:', error);
 });
 
-// Função para criar um usuário
+// Função para criar um usuário 
 export async function createUser(email, password) {
   try {
     const db = await openDatabase();
@@ -118,6 +110,7 @@ export async function getUserByEmail(email) {
 }
 
 // Função para salvar caminhos das imagens
+//Se a foto já existir ela será atualizada se não será adicionada
 export async function saveImagePaths(projectId, userId, imagePaths, projectName) {
   try {
     const db = await openDatabase();

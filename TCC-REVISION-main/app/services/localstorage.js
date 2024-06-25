@@ -1,5 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+//Função para Guardar uma String (Texto)
 export const setStringLocalStorage = async (key, value) => {
   try {
     await AsyncStorage.setItem(key, value);
@@ -7,7 +9,7 @@ export const setStringLocalStorage = async (key, value) => {
     console.error('Erro ao salvar usuário logado:', e);
   }
 };
-
+//Função para Pegar uma String (Texto)
 export const getStringLocalStorage = async (key) => {
   try {
     return await AsyncStorage.getItem(key);
@@ -15,7 +17,7 @@ export const getStringLocalStorage = async (key) => {
     console.error('Erro ao buscar usuário logado:', e);
   }
 }
-
+//Função para Remover Algo do BD
 export const removeLocalStorage = async (key) => {
   try {
     await AsyncStorage.removeItem(key);
@@ -24,6 +26,7 @@ export const removeLocalStorage = async (key) => {
   }
 }
 
+//Função para Guardar um Objeto
 export const setObjectLocalStorage = async (key, value) => {
   try {
     const jsonValue = JSON.stringify(value);
@@ -34,6 +37,7 @@ export const setObjectLocalStorage = async (key, value) => {
   }
 }
 
+//Função para Pegar um Objeto
 export const getObjectLocalStorage = async (key) => {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
@@ -43,6 +47,7 @@ export const getObjectLocalStorage = async (key) => {
   }
 }
 
+//Função para Limpar Tudo bd
 export const clearLocalStorage = async () => {
   console.info('Limpando storage...');
   try {

@@ -97,3 +97,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
+
+//tela New - onde mostra os novos projetos a serem cadastrados
