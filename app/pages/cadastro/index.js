@@ -98,6 +98,10 @@ export default function Cadastro() {
         <TouchableOpacity style={styles.button} onPress={handleRegister}>
           <Text style={styles.buttonText}>Cadastrar</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonVoltar} onPress={() => navigation.navigate('Signin')}>
+          <Text style={styles.registerText}>Já possui uma conta? Clique aqui para entrar</Text>
+        </TouchableOpacity>
       </Animatable.View>
     </View>
   );
@@ -156,6 +160,11 @@ const styles = StyleSheet.create({
   buttonRegister: {
     marginTop: 14,
     alignSelf: 'center'
+  },
+  buttonVoltar: {
+    marginTop: 14,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   registerText: {
     color: '#DCDCDC'
